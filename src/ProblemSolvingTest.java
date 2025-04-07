@@ -18,6 +18,16 @@ public class ProblemSolvingTest {
   }
 
   @Test
+  void testAllStartWithA_trueOneWord() {
+    // arrange
+    Set<String> input = Set.of("armadillo");
+    // act
+    boolean actual = ProblemSolving.allStartWithA(input);
+    //assert
+    assertTrue(actual);
+  }
+
+  @Test
   void testAllStartWithA_falseOneElement() {
     // arrange
     Set<String> input = Set.of("armadillo", "utopia", "Arcanine");
@@ -57,6 +67,16 @@ public class ProblemSolvingTest {
     assertTrue(actual);
   }
 
+  @Test
+  void testHasEmptyString_trueOneElement() {
+    // arrange
+    Set<String> input = Set.of("");
+    // act
+    boolean actual = ProblemSolving.hasEmptyString(input);
+    // assert
+    assertTrue(actual);
+  }
+
 
   @Test
   void testHasEmptyString_noElements() {
@@ -88,6 +108,16 @@ public class ProblemSolvingTest {
     int actual = ProblemSolving.minLength(input);
     // assert
     assertEquals(1, actual);
+  }
+
+  @Test
+  void testMinLength_oneWord() {
+    // arrange
+    Set<String> input = Set.of("by");
+    // act
+    int actual = ProblemSolving.minLength(input);
+    // assert
+    assertEquals(2, actual);
   }
     
   @Test
