@@ -7,7 +7,7 @@ import java.util.Set;
 import org.junit.jupiter.api.Test;
 
 public class ProblemSolvingTest {
-  @Test
+@Test
   void testAllStartWithA_trueMixedCase() {
     // arrange
     Set<String> input = Set.of("armadillo", "Arcanine", "asbestos", "ABBA");
@@ -27,13 +27,15 @@ public class ProblemSolvingTest {
     assertFalse(actual);
   }
 
-  // TODO:
-  // Come up with more tests to thoroughly test testAllStartWithA
-  // Suggestions:
-  //  - test an empty set
-  //  - test a set where none start with A
-  //  - test a set with only a single element
-  //  - more you can think of!
+  @Test
+  void testAllStartWithA_noElements() {
+    // arrange
+    Set<String> input = Set.of();
+    // act
+    boolean actual = ProblemSolving.allStartWithA(input);
+    // assert
+    assertTrue(actual);
+  }
 
   @Test
   void testHasEmptyString_falseAllNonEmpty() {
@@ -56,9 +58,15 @@ public class ProblemSolvingTest {
   }
 
 
-  // TODO:
-  // Come up with more tests to thoroughly test hasEmptyString
-  // Use your creativity here!
+  @Test
+  void testHasEmptyString_noElements() {
+    // arrange
+    Set<String> input = Set.of();
+    // act
+    boolean actual = ProblemSolving.hasEmptyString(input);
+    // assert
+    assertFalse(actual);
+  }
 
 
   @Test
@@ -72,14 +80,25 @@ public class ProblemSolvingTest {
   }
 
 
-  // TODO:
-  // Come up with more tests to thoroughly test maxLength
-  // Use your creativity here!
+  @Test
+  void testMinLength_multipleWords() {
+    // arrange
+    Set<String> input = Set.of("by", "a", "commodius", "vicus");
+    // act
+    int actual = ProblemSolving.minLength(input);
+    // assert
+    assertEquals(1, actual);
+  }
     
-  
-  // TODO:
-  // Come up with ALL tests to thoroughly test minLength
-  // Use your creativity here, and consider looking back at the maxLength
-  // tests for inspiration
+  @Test
+  void testMinLength_noElements() {
+    // arrange
+    Set<String> input = Set.of();
+    // act
+    int actual = ProblemSolving.minLength(input);
+    // assert
+    assertEquals(Integer.MAX_VALUE, actual);
+  }
+
 
 }
